@@ -18,12 +18,15 @@ from django.urls import path,re_path
 from backend import views as backend_views
 from calc import views as calc_views
 
-urlpatterns = [
+urlpatterns = {
     path('', backend_views.home, name='home'),
-    re_path('^index*', backend_views.home, name='index'),
-    re_path('^tab*', backend_views.tab, name='tab'),
+    re_path('^index/', backend_views.home, name='index'),
+    re_path('^tab/', backend_views.tab, name='tab'),
     path('admin/', admin.site.urls),
-    re_path('^detail*', backend_views.detail, name='detail'),
-    #path('add2/<int:a>/<int:b>/', calc_views.add2, name='add2'),
+    re_path('^detail/', backend_views.detail, name='detail'),
+    re_path('^login*', backend_views.login, name='login'),
+    re_path('^register*', backend_views.register, name='register'),
+    re_path('^logout*', backend_views.logout, name='logout'),
+    # path('add2/<int:a>/<int:b>/', calc_views.add2, name='add2'),
 
-]
+}
